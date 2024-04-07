@@ -123,22 +123,48 @@ public class ForegroundService extends Service {
      * by the OS.
      */
     @SuppressLint("WakelockTimeout")
-    private void keepAwake()
-    {
-        JSONObject settings = BackgroundMode.getSettings();
-        boolean isSilent    = settings.optBoolean("silent", false);
+    // private void keepAwake()
+    // {
+    //     JSONObject settings = BackgroundMode.getSettings();
+    //     boolean isSilent    = settings.optBoolean("silent", false);
 
-        if (!isSilent) {
-            startForeground(NOTIFICATION_ID, makeNotification());
+    //     if (!isSilent) {
+    //         startForeground(NOTIFICATION_ID, makeNotification());
+    //     }
+
+    //     PowerManager pm = (PowerManager)getSystemService(POWER_SERVICE);
+
+    //     wakeLock = pm.newWakeLock(
+    //             PARTIAL_WAKE_LOCK, "backgroundmode:wakelock");
+
+    //     wakeLock.acquire();
+    // }
+
+ private void keepAwake() {
+    JSONObject settings = BackgroundMode.getSettings();
+    boolean isSilent = settings.optBoolean("silent", false);
+
+    if (!isSilent) {
+        Notification notification = makeNotification();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startForeground(NOTIFICATION_ID, notification, Service.FOREGROUND_SERVICE_TYPE_MICROPHONE);
+        } else {
+            startForeground(NOTIFICATION_ID, notification);
         }
-
-        PowerManager pm = (PowerManager)getSystemService(POWER_SERVICE);
-
-        wakeLock = pm.newWakeLock(
-                PARTIAL_WAKE_LOCK, "backgroundmode:wakelock");
-
-        wakeLock.acquire();
     }
+
+    PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
+
+    wakeLock = pm.newWakeLock(
+            PARTIAL_WAKE_LOCK, "backgroundmode:wakelock");
+
+    wakeLock.acquire();
+}
+
+
+
+
+ 
 
     /**
      * Stop background mode.
