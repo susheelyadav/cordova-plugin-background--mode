@@ -67,9 +67,8 @@
             <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
         </config-file>
             
-        //changes
-          <config-file target="AndroidManifest.xml" parent="/manifest">
-            <uses-permission android:name="android.permission.RECORD_AUDIO />
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
         </config-file>
 
         <source-file
