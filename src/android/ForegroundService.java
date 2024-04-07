@@ -147,7 +147,7 @@ public class ForegroundService extends Service {
     if (!isSilent) {
         Notification notification = makeNotification();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(NOTIFICATION_ID, notification, Service.FOREGROUND_SERVICE_TYPE_MICROPHONE);
+            startForeground(NOTIFICATION_ID, notification,FOREGROUND_SERVICE_TYPE_MICROPHONE);
         } else {
             startForeground(NOTIFICATION_ID, notification);
         }
