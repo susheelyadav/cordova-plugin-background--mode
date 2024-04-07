@@ -62,7 +62,7 @@
         </config-file>
 
 <service
-  android:name=".MyAudioRecordingService"
+  android:name="de.appplant.cordova.plugin.background.ForegroundService"
   android:foregroundServiceType="microphone"
   android:exported="false">
 </service>
