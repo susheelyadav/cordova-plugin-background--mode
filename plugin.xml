@@ -45,11 +45,23 @@
             <preference name="KeepRunning" value="true" />
         </config-file>
 
+       
+        
+        
+        
+        
+        
+        <service
+          android:name="de.appplant.cordova.plugin.background.ForegroundService"
+          android:foregroundServiceType="microphone"
+          android:exported="false">
+        </service>
+
+
+        
+
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <service android:name="de.appplant.cordova.plugin.background.ForegroundService" 
-            android:foregroundServiceType="microphone"
-      `        android:exported="false"></service>
-                
+            <service android:name="de.appplant.cordova.plugin.background.ForegroundService" /> 
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
@@ -71,11 +83,7 @@
         
         
 
-<!-- <service
-  android:name="de.appplant.cordova.plugin.background.ForegroundService"
-  android:foregroundServiceType="microphone"
-  android:exported="false">
-</service> -->
+
 
 
 
