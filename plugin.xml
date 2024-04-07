@@ -57,6 +57,23 @@
             <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
         </config-file>
 
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+        </config-file>
+
+ <application ...>
+    <service
+      android:name=".MyAudioRecordingService"  
+      android:foregroundServiceType="microphone"
+      android:exported="false">
+    </service>
+  </application>
+
+
+
+
+        
+
         <source-file
             src="src/android/BackgroundMode.java"
             target-dir="src/de/appplant/cordova/plugin/background" />
