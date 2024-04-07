@@ -61,13 +61,11 @@
             <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
         </config-file>
 
- <application ...>
-    <service
-      android:name=".MyAudioRecordingService"  
-      android:foregroundServiceType="microphone"
-      android:exported="false">
-    </service>
-  </application>
+<service
+  android:name=".MyAudioRecordingService"
+  android:foregroundServiceType="microphone"
+  android:exported="false">
+</service>
 
 
 
