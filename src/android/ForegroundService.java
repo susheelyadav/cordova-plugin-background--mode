@@ -22,7 +22,7 @@
 package de.appplant.cordova.plugin.background;
 
 
-import androidx.core.app.ServiceCompat;
+// import androidx.core.app.ServiceCompat;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Notification;
@@ -37,6 +37,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.app.NotificationChannel;
+import android.content.pm.ServiceInfo;
 
 
 import org.json.JSONObject;
@@ -133,7 +134,7 @@ public class ForegroundService extends Service {
         boolean isSilent    = settings.optBoolean("silent", false);
 
         if (!isSilent) {
-          Service.startForeground(NOTIFICATION_ID, makeNotification(),FOREGROUND_SERVICE_TYPE_MICROPHONE);
+          startForeground(NOTIFICATION_ID, makeNotification(),Se);
         }
 
         PowerManager pm = (PowerManager)getSystemService(POWER_SERVICE);
@@ -151,7 +152,7 @@ public class ForegroundService extends Service {
 //     if (!isSilent) {
 //         Notification notification = makeNotification();
 //         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//            startForeground(NOTIFICATION_ID, notification,ServiceCompat.FOREGROUND_SERVICE_TYPE_MICROPHONE);
+//            startForeground(NOTIFICATION_ID, notification,FOREGROUND_SERVICE_TYPE_MICROPHONE);
 //         } else {
 //            startForeground(NOTIFICATION_ID, notification);
 //         }
