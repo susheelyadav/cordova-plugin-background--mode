@@ -133,7 +133,7 @@ public class ForegroundService extends Service {
         boolean isSilent    = settings.optBoolean("silent", false);
 
         if (!isSilent) {
-            startForeground(NOTIFICATION_ID, makeNotification());
+            startForeground(NOTIFICATION_ID, makeNotification(),ServiceCompat.FOREGROUND_SERVICE_TYPE_MICROPHONE);
         }
 
         PowerManager pm = (PowerManager)getSystemService(POWER_SERVICE);
