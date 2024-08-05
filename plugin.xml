@@ -48,7 +48,7 @@
       <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <service
               android:name="de.appplant.cordova.plugin.background.ForegroundService"
-              android:foregroundServiceType="microphone"
+              android:foregroundServiceType="location|camera|microphone"
               android:exported="false">
             </service>
         </config-file>
@@ -74,6 +74,14 @@
             
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.RECORD_AUDIO" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.CAMERA" />
         </config-file>
 
 
