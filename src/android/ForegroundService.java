@@ -38,6 +38,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.app.NotificationChannel;
 import android.Manifest;
+import android.content.pm.PackageManager;
 
 import org.json.JSONObject;
 
