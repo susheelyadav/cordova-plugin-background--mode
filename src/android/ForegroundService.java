@@ -37,8 +37,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.app.NotificationChannel;
-import android.Manifest;
-import android.content.pm.PackageManager;
+
 
 import org.json.JSONObject;
 
@@ -130,17 +129,7 @@ public class ForegroundService extends Service {
     private void keepAwake()
     {
         JSONObject settings = BackgroundMode.getSettings();
-    // changes here
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        requestPermissions(new String[]{
-            Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.CAMERA,
-            Manifest.permission.RECORD_AUDIO
-        }, 123);
-       }
- //changes end here 
-     
-     
+ 
         boolean isSilent    = settings.optBoolean("silent", false);
 
         if (!isSilent) {
