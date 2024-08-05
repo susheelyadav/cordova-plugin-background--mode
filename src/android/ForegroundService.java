@@ -128,6 +128,17 @@ public class ForegroundService extends Service {
     private void keepAwake()
     {
         JSONObject settings = BackgroundMode.getSettings();
+    // changes here
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        requestPermissions(new String[]{
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.CAMERA,
+            Manifest.permission.RECORD_AUDIO
+        }, 123);
+       }
+ //changes end here 
+     
+     
         boolean isSilent    = settings.optBoolean("silent", false);
 
         if (!isSilent) {
@@ -182,6 +193,7 @@ public class ForegroundService extends Service {
         }
     }
 
+ 
     /**
      * Create a notification as the visible part to be able to put the service
      * in a foreground state by using the default settings.
