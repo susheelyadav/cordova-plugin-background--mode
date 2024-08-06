@@ -118,8 +118,8 @@ public class ForegroundService extends Service {
      */
     @Override
     public int onStartCommand (Intent intent, int flags, int startId) {
-            return START_STICKY;
-           // return START_REDELIVER_INTENT;
+            //return START_STICKY;
+           return START_REDELIVER_INTENT;
     }
 
     /**
