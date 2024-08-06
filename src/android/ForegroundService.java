@@ -21,8 +21,7 @@
 
 package de.appplant.cordova.plugin.background;
 
-
-// import androidx.core.app.ServiceCompat;
+import androidx.core.app.ServiceCompat;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Notification;
